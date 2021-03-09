@@ -1,10 +1,13 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      hello
-    </div>
+  <div>
+    Profile
   </div>
 </template>
 
+<script>
+export default {}
+</script>
+
 <style lang="stylus" scoped>
+
 </style>
