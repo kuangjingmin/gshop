@@ -10,10 +10,20 @@
 <script>
 // 引入组件
 import FooterGuide from './components/FooterGuide/FooterGuide'
+// 第一步引入vuex的映射actions
+import { mapActions } from 'vuex'
 export default {
+  mounted () {
+    // 第三步直接调用函数
+    this.recevice_address()
+  },
   // 映射组件标签
   components: {
     FooterGuide
+  },
+  methods: {
+    // 第二步映射成函数
+    ...mapActions(['recevice_address'])
   }
 }
 </script>

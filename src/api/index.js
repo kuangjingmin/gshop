@@ -2,20 +2,32 @@
 向外暴露n个请求函数的模块
 */
 import ajax from './ajax'
+
+const BASE_URL = '/api'
 // 1、根据经纬度获取位置详情
 // 属于vue路由中的 params传参
-export const reqAdress = (geohash) => ajax(`/position/${geohash}`)
+export const reqAdress = (geohash) => ajax(`${BASE_URL}/position/${geohash}`)
 // 2、获取食品分类列表
-export const reqFoodTypes = () => ajax('/index_category')
+export const reqFoodTypes = () => ajax(BASE_URL + '/index_category')
 
 // 3、根据经纬度获取商铺列表
 // 属于vue路由中的 query传参
-export const reqShops = (longitude, latitude) => ajax('/shops', { longitude, latitude })
+export const reqShops = (longitude, latitude) => ajax(BASE_URL + '/shops', { longitude, latitude })
 
 // 4、根据经纬度和关键字搜索商铺列表
-// 5、获取一次性验证码
+export const reqLoginPwd = ({ name, pwd, captcha }) => ajax(BASE_URL + '/login_pwd', { name, pwd, captcha })
+
 // 6、用户名密码登陆
+export const reqSearchShops = ({ keyword, geohash }) => ajax(BASE_URL + '/search_shops', { keyword, geohash }, 'POST')
+
 // 7、发送短信验证码
+export const reqCode = (phone) => ajax(BASE_URL + '/sendcode', phone)
+
 // 8、手机号验证码登陆
+export const reqLoginSMS = ({ phone, code }) => ajax(BASE_URL + '/login_sms', { phone, code }, 'POST')
+
 // 9、根据会话获取用户信息
-// 10、用户登出
+export const reqUserInfo = () => ajax(BASE_URL + '/userinfo')
+
+// 10、用户登出/logout
+export const reqLogout = () => ajax(BASE_URL + '/logout')

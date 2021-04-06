@@ -1,11 +1,16 @@
 // 路由器对象模块
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import MSite from '../views/MSite/MSite.vue'
-import Order from '../views/Order/Order.vue'
-import Profile from '../views/Profile/Profile.vue'
-import Search from '../views/Search/Search.vue'
 import Login from '../views/Login/Login.vue'
+// import MSite from '../views/MSite/MSite.vue'
+// import Order from '../views/Order/Order.vue'
+// import Profile from '../views/Profile/Profile.vue'
+// import Search from '../views/Search/Search.vue'
+
+const MSite = () => import('../views/MSite/MSite.vue')
+const Order = () => import('../views/Order/Order.vue')
+const Profile = () => import('../views/Profile/Profile.vue')
+const Search = () => import('../views/Search/Search.vue')
 
 Vue.use(VueRouter)
 
@@ -13,6 +18,8 @@ const routes = [
   {
     path: '/msite',
     name: 'MSite',
+    // 返回路由组件的函数，只有执行此函数才会加载路由组件
+    // 这个函数在请求对应的路由路径时才会执行
     component: MSite,
     meta: {
       showFooter: true

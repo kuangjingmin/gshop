@@ -122,11 +122,12 @@ export default {
 <style lang="stylus" scoped>
 @import '../../common/mixins.styl'
   .profile //我的
+    overflow hidden
     width 100%
     a
       text-decoration none
     .profile-number
-      // margin-top 45.5px
+      margin-top 45.5px
       .profile-link
         clearFix()
         position relative
