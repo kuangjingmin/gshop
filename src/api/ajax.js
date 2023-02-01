@@ -7,7 +7,7 @@ import axios from 'axios'
 // 传入三个参数 url data对象 type请求类型
 export default function ajax (url, data = {}, type = 'GET') {
   // 返回一个promise对象
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     let promise
     // 当请求方式是get时，处理请求参数data
     if (type === 'GET') {
@@ -26,10 +26,10 @@ export default function ajax (url, data = {}, type = 'GET') {
       // 发送post请求
       promise = axios.post(url, data)
     }
-    promise.then(function (respondse) {
+    promise.then((respondse) => {
       // 成功调用resolve
       resolve(respondse.data)
-    }).catch(function (error) {
+    }).catch((error) => {
       // 失败调用reject
       reject(error)
     })
